@@ -1,0 +1,24 @@
+{% extends "layout.html" %} 
+{% block title %}Usuarios{% endblock %} 
+{% block head %} {{ super() }} {% endblock %} 
+{% block content %}
+  <div class="container">
+    <h1 class="title">Usuarios</h1>
+    <table class="table is-fullwidth table is-striped table is-hoverable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% endblock %}

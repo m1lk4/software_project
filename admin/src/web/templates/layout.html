@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="{{url_for('static', filename='initBulma.js')}}"></script>
+    <script src="https://kit.fontawesome.com/a35da4ceef.js" crossorigin="anonymous"></script>
+    <title>{% block title %}Este es el título :D{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <p class="mb-4"></p>
+    <div class="container">
+      <nav class="navbar-menu navbar is-dark">
+        {% block navbar %}
+          <div class="navbar-start">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+              <span>Home</span>
+            </a>
+            <a href="{{ url_for('issues.index') }}" class="navbar-item">Issues</a>
+          {% if is_authenticated(session) %}
+            <a href="{{ url_for('users.index') }}" class="navbar-item">Users</a>
+          </div>
+          <div class="navbar-end">
+            <a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a>
+          </div>
+          {% else %}
+          <div class="navbar-end">
+            <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
+          </div>
+          {% endif %}
+        {% endblock %}
+      </nav>
+    </div>
+    <div id="main">
+      <div class="container">
+      <br/>
+      {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="notification is-{{category}}">
+              <button class="delete"></button>
+                <p>{{ message }}</p>
+          {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+    <footer class="footer has-background-danger-light">
+      {% block footer %}
+        <div class="content has-text-centered pb-4">
+          <p>
+            <strong>Sitio web</strong>
+          </p>
+        </div>
+      {% endblock %}
+    </footer>
+  </body>
+</html>

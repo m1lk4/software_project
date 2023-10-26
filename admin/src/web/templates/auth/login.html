@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block head%}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+      <form action="{{ url_for('auth.authenticate') }}" method="POST" class="box">
+        <h1 class="title">Iniciar sesión</h1>
+          <div class="field">
+              <label for="email" class="label">Correo</label>
+              <div class="control">
+                  <input class="input is-rounded input is-primary" type="email" name="email" placeholder="Correo" required>
+              </div>
+          </div>
+
+          <div class="field">
+              <label for="password" class="label">Clave</label>
+              <div class="control">
+                  <input class="input is-rounded input is-primary" type="password" name="password" placeholder="Clave" required>
+              </div>
+          </div>
+
+          <div class="field">
+              <div class="control">
+                  <input class="button is-primary button is-rounded" type="submit" value="Login">
+              </div>
+          </div>
+      </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Lista de Issues{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <form action="{{ url_for('issues.create') }}" method="post" class="box">
+            <h1 class="title">Add a new issue</h1>
+            <div class="field">
+                <label for="email" class="label">Email:</label>
+                <div class="control">
+                    <input type="email" id="email" name="email" class="input" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="title" class="label">Title:</label>
+                <div class="control">
+                    <input type="text" id="title" name="title" class="input" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="description" class="label">Description:</label>
+                <div class="control">
+                    <textarea id="description" name="description" class="textarea" rows="4" required></textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input type="submit" class="button is-primary" value="Enviar">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+</html>

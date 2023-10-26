@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Lista de Issues{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block content %}
+<form action="{{ url_for('issues.update', id=issue.id) }}" method="post" class="box">
+    <h1 class="title">Edit a new issue</h1>
+    <div class="field">
+        <label class="label" for="title">Title:</label>
+        <div class="control">
+            <input class="input is-rounded input is-primary" type="text" placeholder="Large input" id="title" name="title" value="{{ issue.title }}" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="description">Description:</label>
+        <div class="control">
+            <textarea class="textarea textarea is-primary" id="description" name="description" rows="4" cols="50" required>{{ issue.description }}</textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="status">Status:</label>
+        <div class="control">
+            <div class="select is-fullwidth select is-primary select is-rounded">
+                <select id="status" name="status">
+                    <option value="new" {% if issue.status == "new" %}selected{% endif %}>New</option>
+                    <option value="in_progress" {% if issue.status == "in_progress" %}selected{% endif %}>In progress</option>
+                    <option value="done" {% if issue.status == "done" %}selected{% endif %}>Done</option>
+                    <option value="other" {% if issue.status == "other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio de 2 líneas antes del botón de envío -->
+    <div style="margin-bottom: 2em;"></div>
+
+    <!-- Botón de envío -->
+    <div class="field">
+        <div class="control">
+            <input class="button is-primary button is-rounded" type="submit" value="Enviar">
+        </div>
+    </div>
+</form>
+{% endblock %}
+</html>

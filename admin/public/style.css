@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+body {
+  background-color: None;
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#navbar {
+  height: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#navbar img {
+  max-height: 100%;
+  width: auto; /* Asegúrate de que el ancho se ajuste automáticamente */
+}
+
+#login-logout-link {
+  /* Estilos específicos para el enlace "Log in" */
+  text-align: right;
+  float: right;
+  border-bottom: 3px solid rgb(226, 69, 87);
+}
+
+#footer {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#main {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #d0edd7;
+  padding: 20px 40px;
+  margin-top: 20px;
+  min-height: 400px;
+}
+
+a.link {
+  border-bottom: 3px solid rgb(69, 148, 226);
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 10px 15px;
+  border-radius: 0;
+  color: #416475;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  text-decoration: none;
+  margin-top: 50px;
+  letter-spacing: 1px;
+  width: 8%;
+}
+
+/* Used for tables on index pages. */
+.index-table {
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.index-table td,
+.index-table th {
+  padding: 1rem;
+  text-align: left;
+}
+
+.index-table td,
+.index-table th {
+  border-bottom: 1px solid #f4f4f4; /* grey-1 */
+}
+
+.index-table tr:last-child td {
+  border-bottom: none;
+}
+
+.index-table tr:hover {
+  background-color: rgba(0, 0, 0, .04);
+}
+
+/* Don't highlight thead on hover */
+.index-table thead tr:hover {
+  background-color: rgba(0, 0, 0, 0);;
+}
+
+.index-table-link,
+.index-table-action-link {
+  margin: -1rem;
+  padding: 1rem;
+  color: #007ecc; /* blue */
+  fill: #007ecc; /* blue */
+
+  text-decoration: none;
+}
+
+.index-table-link {
+  display: block;
+}
+
+.index-table-action-link:hover {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, .04);
+}
+
+.index-table-action-link {
+  float: right;
+}
+
+tr.disabled {
+  color: #bbb !important;
+}
+
+.menu-barra-superior {
+  background-color: #333; /* Color de fondo de la barra */
+  color: #fff; /* Color del texto en la barra */
+  padding: 10px; /* Espacio interno alrededor del menú */
+}
+
+.menu-lista {
+  list-style: none; /* Quitar viñetas de la lista */
+  margin: 0; /* Eliminar margen predeterminado */
+  padding: 0; /* Eliminar relleno predeterminado */
+}
+
+.menu-lista li {
+  display: inline-block; /* Mostrar elementos en línea uno al lado del otro */
+  margin-right: 20px; /* Espacio entre elementos del menú */
+}
+
+.menu-lista li:last-child {
+  margin-right: 0; /* No aplicar margen a último elemento */
+}
+
+.menu-lista a {
+  text-decoration: none; /* Quitar subrayado de enlaces */
+  color: #fff; /* Color del texto en los enlaces */
+}
+
+p.flash {
+  width: 100%;
+  padding: 5px;
+}
+
+p.flash.error {
+  border: 3px solid red;
+  background-color: #ff440070;
+}
+
+p.flash.success {
+  border: 3px solid green;
+  background-color: #acff2f70;
+}
+
+p.flash.info {
+  border: 3px solid blue;
+  background-color: #0000ff6e;
+}
+
+.button_add {
+  float: right;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button_add:hover {
+  background-color: #45a049;
+}
+
+.horizontal-buttons {
+  display: inline-block;  /* Esto hará que los botones se muestren en línea */
+  margin-right: 10px;  /* Espacio entre los botones */
+}
