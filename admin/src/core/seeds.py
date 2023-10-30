@@ -3,6 +3,22 @@ from src.core import auth
 
 
 def run():
+    item1 = board.create_item(
+        name="Sofá",
+        description="Sofá verde de 2 cuerpos",
+        price=100000,
+    )
+    item2 = board.create_item(
+        name="Tele",
+        description="Tele Samsung 43 pulgadas",
+        price=120000,
+    )
+    item3 = board.create_item(
+        name="Mesa ratona",
+        description="Mesa ratona de madera elevable",
+        price=80000,
+    )
+
     issue1 = board.create_issue(
         email="jose@mail.com",
         title="Mi computadora no funciona.",

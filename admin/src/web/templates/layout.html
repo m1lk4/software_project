@@ -13,7 +13,7 @@
   <body>
     <p class="mb-4"></p>
     <div class="container">
-      <nav class="navbar-menu navbar is-dark">
+      <nav class="navbar-menu navbar is-fixed-top navbar is-primary" role="navigation" aria-label="main navigation">
         {% block navbar %}
           <div class="navbar-start">
             <a href="{{ url_for('home') }}" class="navbar-item">
@@ -23,6 +23,7 @@
               <span>Home</span>
             </a>
             <a href="{{ url_for('issues.index') }}" class="navbar-item">Issues</a>
+            <a href="{{ url_for('items.index') }}" class="navbar-item">Items</a>
           {% if is_authenticated(session) %}
             <a href="{{ url_for('users.index') }}" class="navbar-item">Users</a>
           </div>
@@ -37,8 +38,7 @@
         {% endblock %}
       </nav>
     </div>
-    <div id="main">
-      <div class="container">
+    <div id="main" class="container">
       <br/>
       {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
@@ -52,7 +52,6 @@
       {% endwith %}
         {% block content %}
         {% endblock %}
-      </div>
     </div>
     <footer class="footer has-background-danger-light">
       {% block footer %}

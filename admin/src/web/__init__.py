@@ -10,6 +10,7 @@ from src.web.config import config
 from src.web.helpers import handlers
 from src.web.helpers import auth
 from src.web.controllers.issues import issue_blueprint
+from src.web.controllers.items import item_blueprint
 from src.web.controllers.users import users_blueprint
 from src.web.controllers.auth import auth_blueprint
 from src.web.controllers.api.issues import issue_api_blueprint
@@ -44,6 +45,7 @@ def create_app(env="development", static_folder="static"):
     app.register_blueprint(issue_blueprint)
     app.register_blueprint(users_blueprint)
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(item_blueprint)
     # API
     app.register_blueprint(issue_api_blueprint)
 

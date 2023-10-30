@@ -2,52 +2,53 @@
 {% block title %}Lista de Issues{% endblock %}
 {% block head %} {{ super() }} {% endblock %}
 {% block content %}
-<div class="container">
-    <h1 class="title">Consultas</h1>
-    <button class="button is-primary button is-rounded is-pulled-right">
-        <a href="{{ url_for('issues.new') }}">Add Issue</a>
-    </button>
-</div>
-<div class="container">
-    <table class="table is-fullwidth table is-striped table is-hoverable">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Email</th>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Estado</th>
-                <th>Creado en</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for issue in issues %}
-            <tr>
-                <th>{{ issue.id }}</th>
-                <th>{{ issue.email }}</th>
-                <th>{{ issue.title }}</th>
-                <th>{{ issue.description }}</th>
-                <th>{{ issue.status }}</th>
-                <th>{{ issue.inserted_at }}</th>
-                <th>
-                    <a href="{{ url_for('issues.edit', id=issue.id) }}" class="button is-small is-info">
-                        <span class="icon">
-                            <i class="fas fa-edit"></i>
-                        </span>
-                    </a>
-                    <form method="post" action="{{ url_for('issues.delete', id=issue.id)}}">
-                        <button type="submit" class="button is-small is-danger">
+    <section class="section">
+        <h1 class="title">Issues</h1>
+        <h2 class="subtitle">List of issues</h2>
+        <a href="{{ url_for('issues.new') }}" class="button is-primary is-rounded is-pulled-right">
+            Add Issue
+        </a>
+    </section>
+    <section class="section is-main-section">
+        <table class="table is-fullwidth table is-striped table is-hoverable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Creado en</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for issue in issues %}
+                <tr>
+                    <td>{{ issue.id }}</td>
+                    <td>{{ issue.email }}</td>
+                    <td>{{ issue.title }}</td>
+                    <td>{{ issue.description }}</td>
+                    <td>{{ issue.status }}</td>
+                    <td>{{ issue.inserted_at }}</td>
+                    <td>
+                        <a href="{{ url_for('issues.edit', id=issue.id) }}" class="button is-small is-info">
                             <span class="icon">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
-                        </button>
-                    </form>
-                </th>               
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+                        </a>
+                        <form method="get" action="{{ url_for('issues.delete', id=issue.id)}}">
+                            <button type="submit" class="button is-small is-danger">
+                                <span class="icon">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                            </button>
+                        </form>
+                    </td>               
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
 </html>

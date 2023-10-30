@@ -1,6 +1,19 @@
 from src.core.database import db
 from src.core.board.issue import Issue
 from src.core.board.label import Label
+from src.core.board.item import Item
+
+
+def create_item(**kwargs):
+    item = Item(**kwargs)
+    db.session.add(item)
+    db.session.commit()
+
+    return item
+
+
+def list_items():
+    return Item.query.all()
 
 
 def list_issues():

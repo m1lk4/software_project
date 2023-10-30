@@ -10,7 +10,6 @@ packages = [{include = "web", from = "src"}]
 python = "^3.10"
 flask = "^2.3.2"
 flask-sqlalchemy = "^3.0.5"
-psycopg2-binary = "^2.9.7"
 flask-shell-ipython = "^0.5.1"
 flask-session = "^0.5.0"
 
