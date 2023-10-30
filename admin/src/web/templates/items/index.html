@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}List of items{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block content %}
+    <section class="section">
+        <h1 class="title">Items</h1>
+        <h2 class="subtitle">List of items</h2>
+    </section>
+    <section class="section is-main-section">
+        <div class="card has-table">
+            <header class="card-header">
+                <span class="icon-text card-header-title">
+                <span class="icon">
+                    <i class="fa-solid fa-list"></i>
+                </span>
+                <span>Items</span>
+                </span>
+            </header>
+            <div class="card-content">
+                <table class="table is-fullwidth is-striped is-hoverable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.price }}</td> 
+                            <td class="is-actions-cell">
+                                <div class="buttons">
+                                  <button class="button is-small" type="button">
+                                    <span class="icon"><i class="fa-solid fa-eye"></i></span>
+                                  </button>
+                                </div>
+                            </td>          
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+</html>
